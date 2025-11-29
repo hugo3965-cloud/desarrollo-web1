@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    table,th,td{
+        border-collapse:collapse;
+    } 
+    td:hover {background-color:  #D6EEEE;}
+    </style>
+</head>
+<body>
+    <table border="1" cellspacing="5" cellpadding="10" width="100%">
+        <caption>Horario de clases</caption>
+        <thead>
+            <tr>
+                <th>Hora</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Jueves</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>10:00</td>
+                <td rowspan="2">Pintura</td>
+                <td>Tenis</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>11:00</td>
+                <!-- Pintura continúa -->
+                <td></td>
+                <td rowspan="2">Futbol</td>
+            </tr>
+            <tr>
+                <td>12:00</td>
+                <td></td>
+                <td></td>
+                <!-- Futbol continúa -->
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

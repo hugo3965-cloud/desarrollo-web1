@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Frames con CSS Grid</title>
+    <style>
+        /* Reseteo básico y configuración del contenedor principal */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Asegura que el body ocupe toda la altura de la ventana */
+            font-family: sans-serif;
+        }
+
+        .contenedor-grid {
+            display: grid;
+            height: 100vh; /* El contenedor ocupa el 100% de la altura visible */
+            
+            /* Definición del diseño para pantallas grandes (desktop) */
+            grid-template-columns: 200px 1fr; /* Columna izquierda fija (200px), contenido flexible (1fr) */
+            grid-template-rows: auto 1fr auto; /* Encabezado (auto), contenido (1fr - flexible), pie de página (auto) */
+            grid-template-areas: 
+                "encabezado encabezado"
+                "menu-lateral contenido-principal"
+                "pie-pagina pie-pagina";
+        }
+
+        /* Estilos generales para los "paneles" */
+        .panel {
+            padding: 15px;
+            border: 1px solid #ccc;
+            overflow: auto; /* Permite desplazamiento si el contenido es grande */
+        }
+
+        /* Asignación de áreas de la cuadrícula a los elementos */
+        .encabezado {
+            grid-area: encabezado;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
+        .menu-lateral {
+            grid-area: menu-lateral;
+            background-color: #f4f4f4;
+        }
+
+        .contenido-principal {
+            grid-area: contenido-principal;
+            background-color: #fff;
+        }
+
+        .pie-pagina {
+            grid-area: pie-pagina;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
+        /* Media query para diseño responsivo en pantallas más pequeñas */
+        @media (max-width: 600px) {
+            .contenedor-grid {
+                /* Redefine el diseño a una sola columna para móviles */
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto; /* Encabezado, menú, contenido, pie */
+                grid-template-areas:
+                    "encabezado"
+                    "menu-lateral"
+                    "contenido-principal"
+                    "pie-pagina";
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor-grid">
+        <header class="panel encabezado">
+            <h1>Encabezado de la Página</h1>
+        </header>
+
+        <nav class="panel menu-lateral">
+            <h3>Menú</h3>
+            <ul>
+                <li><a href="#">Enlace 1</a></li>
+                <li><a href="#">Enlace 2</a></li>
+                <li><a href="#">Enlace 3</a></li>
+            </ul>
+        </nav>
+
+        <main class="panel contenido-principal">
+            <h2>Contenido Principal</h2>
+            <p>Aquí es donde iría el contenido principal de la página. Puedes desplazarte por este panel si hay suficiente contenido
+            .</p><!-- Añade más contenido para probar el desplazamiento -->
+             <iframe width="914" height="514" src="https://www.youtube.com/embed/3rnJr-fFW98?list=RD3rnJr-fFW98" title="Paul Gilbert - Still Got The Blues (Cover Gary Moore)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor.</p>
+        
+        </main>
+
+        <footer class="panel pie-pagina">
+            <p>Pie de página &copy; 2024</p>
+        </footer>
+    </div>
+
+</body>
+</html>
